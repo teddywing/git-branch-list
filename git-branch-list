@@ -29,8 +29,8 @@ function initialise_database () {
 function print_usage () {
 	cat 1>&2 <<__EOF__
 usage: git branch-list
-   or: git branch-list save
-   or: git branch-list drop
+   or: git branch-list save [<branch-name>]
+   or: git branch-list drop [<branch-name>]
    or: git branch-list ID
 __EOF__
 }
