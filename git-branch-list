@@ -56,6 +56,11 @@ function checkout_branch () {
 		fgrep "$id	" |
 		cut -d '	' -f 2)
 
+	if [ "$branch" = '' ]; then
+		echo 'branch-list: Invalid checkout ID' 1>&2
+		return 1
+	fi
+
 	git checkout "$branch"
 }
 
