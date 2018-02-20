@@ -10,6 +10,15 @@ function initialise_database () {
 	fi
 }
 
+function print_usage () {
+	cat 1>&2 <<__EOF__
+usage: git branch-list
+   or: git branch-list save
+   or: git branch-list drop
+   or: git branch-list ID
+__EOF__
+}
+
 function save_branch () {
 	local branch=$(branch_or_current_branch "$1")
 
@@ -82,6 +91,11 @@ command="$1"
 initialise_database
 
 case "$command" in
+	-h)
+		print_usage
+
+		exit 0
+		;;
 	save)
 		save_branch "$2"
 		;;
