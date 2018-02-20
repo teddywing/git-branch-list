@@ -36,12 +36,12 @@ function save_branch () {
 function drop_branch () {
 	local branch=$(branch_or_current_branch "$1")
 
-	sed -i '.bak' "/$branch/d" "$DATABASE"
+	# Assume `$branch` is an ID if it's not a branch name
+	if ! is_a_branch "$branch"; then
+		branch=$(branch_by_id "$branch")
+	fi
 
-	# TODO: Allow dropping by ID or branch name
-	# if [ "$branch" = '' ] use current branch
-	# if is_a_branch "$branch"; then do what happens now
-	# try to delete branch at ID
+	sed -i '.bak' "/$branch/d" "$DATABASE"
 }
 
 function list_branches () {
@@ -50,11 +50,7 @@ function list_branches () {
 
 function checkout_branch () {
 	local id="$1"
-
-	local branch=$(list_branches |
-		tr -d ' ' |
-		fgrep "$id	" |
-		cut -d '	' -f 2)
+	local branch=$(branch_by_id "$id")
 
 	if [ "$branch" = '' ]; then
 		echo 'branch-list: Invalid checkout ID' 1>&2
@@ -79,6 +75,17 @@ function is_a_branch () {
 
 	git rev-parse --verify "$branch"
 	return $?
+}
+
+function branch_by_id () {
+	local id="$1"
+
+	local branch=$(list_branches |
+		tr -d ' ' |
+		fgrep "$id	" |
+		cut -d '	' -f 2)
+
+	echo "$branch"
 }
 
 command="$1"
