@@ -93,7 +93,12 @@ case "$command" in
 		exit $?
 		;;
 	*)
-		# if $1 is an integer
-		checkout_branch "$1"
+		# If `$1` is an integer
+		if [ "$1" -eq "$1" ] 2>/dev/null; then
+			checkout_branch "$1"
+		else
+			exit 1
+		fi
+
 		;;
 esac
