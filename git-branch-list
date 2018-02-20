@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# git branch-list/bl [save|drop|#id]
+
+# database=
+# if -f .git then database= .git/info/git-branch-list
+DATABASE=.git/info/git-branch-list
+
+function initialise_database () {
+	if [ -d .git ]; then
+		touch "$DATABASE"
+	fi
+}
+
+function save_branch () {
+	local branch=$(branch_or_current_branch "$1")
+
+# 	sed -i '.bak' "0i\\
+# $branch
+# " "$DATABASE"
+#
+# 	rm "${DATABASE}.bak"
+
+# 	# echo "$branch" >> "$DATABASE"
+
+	cat <(echo "$branch") "$DATABASE" > "${DATABASE}.bak"
+	mv "${DATABASE}.bak" "$DATABASE"
+
+	# TODO: don't save if already added
+	# TODO: append instead of prepend so IDs stay the same. Maybe?
+}
+
+function drop_branch () {
+	local branch=$(branch_or_current_branch "$1")
+
+	sed -i '.bak' "/$branch/d" "$DATABASE"
+
+	# TODO: Allow dropping by ID or branch name
+	# if [ "$branch" = '' ] use current branch
+	# if is_a_branch "$branch"; then do what happens now
+	# try to delete branch at ID
+}
+
+function list_branches () {
+	nl "$DATABASE"
+}
+
+function checkout_branch () {
+	local id="$1"
+
+	local branch=$(list_branches |
+		tr -d ' ' |
+		fgrep "$id	" |
+		cut -d '	' -f 2)
+
+	git checkout "$branch"
+}
+
+function branch_or_current_branch () {
+	local branch="$1"
+
+	if [ "$branch" = '' ]; then
+		git rev-parse --abbrev-ref HEAD
+	else
+		echo "$branch"
+	fi
+}
+
+function is_a_branch () {
+	local branch="$1"
+
+	git rev-parse --verify "$branch"
+	return $?
+}
+
+command="$1"
+
+initialise_database
+
+case "$command" in
+	save)
+		save_branch "$2"
+		;;
+	drop)
+		drop_branch "$2"
+		;;
+	"")
+		list_branches
+
+		exit $?
+		;;
+	*)
+		# if $1 is an integer
+		checkout_branch "$1"
+		;;
+esac
