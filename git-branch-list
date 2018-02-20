@@ -73,7 +73,7 @@ function branch_or_current_branch () {
 function is_a_branch () {
 	local branch="$1"
 
-	git rev-parse --verify "$branch"
+	git rev-parse --verify "$branch" > /dev/null 2>&1
 	return $?
 }
 
