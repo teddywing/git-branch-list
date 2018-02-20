@@ -88,7 +88,7 @@ function is_a_branch () {
 	local branch="$1"
 
 	git rev-parse --verify "$branch" > /dev/null 2>&1
-	return $?
+	return
 }
 
 function branch_by_id () {
