@@ -2,8 +2,6 @@
 
 # git branch-list/bl [save|drop|#id]
 
-# database=
-# if -f .git then database= .git/info/git-branch-list
 DATABASE=.git/info/git-branch-list
 
 function initialise_database () {
@@ -15,22 +13,12 @@ function initialise_database () {
 function save_branch () {
 	local branch=$(branch_or_current_branch "$1")
 
-# 	sed -i '.bak' "0i\\
-# $branch
-# " "$DATABASE"
-#
-# 	rm "${DATABASE}.bak"
-
-# 	# echo "$branch" >> "$DATABASE"
-
 	if fgrep "$branch" "$DATABASE" > /dev/null; then
 		return 1
 	fi
 
 	cat <(echo "$branch") "$DATABASE" > "${DATABASE}.bak"
 	mv "${DATABASE}.bak" "$DATABASE"
-
-	# TODO: append instead of prepend so IDs stay the same. Maybe?
 }
 
 function drop_branch () {
