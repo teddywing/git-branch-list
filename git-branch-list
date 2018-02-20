@@ -23,10 +23,13 @@ function save_branch () {
 
 # 	# echo "$branch" >> "$DATABASE"
 
+	if fgrep "$branch" "$DATABASE" > /dev/null; then
+		return 1
+	fi
+
 	cat <(echo "$branch") "$DATABASE" > "${DATABASE}.bak"
 	mv "${DATABASE}.bak" "$DATABASE"
 
-	# TODO: don't save if already added
 	# TODO: append instead of prepend so IDs stay the same. Maybe?
 }
 
