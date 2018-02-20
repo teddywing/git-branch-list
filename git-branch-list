@@ -42,6 +42,7 @@ function drop_branch () {
 	fi
 
 	sed -i '.bak' "/$branch/d" "$DATABASE"
+	rm "${DATABASE}.bak"
 }
 
 function list_branches () {
