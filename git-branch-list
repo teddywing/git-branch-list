@@ -132,7 +132,7 @@ case "$command" in
 	"")
 		list_branches
 
-		exit $?
+		exit
 		;;
 	*)
 		# If `$1` is an integer
