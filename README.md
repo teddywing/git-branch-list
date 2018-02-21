@@ -38,6 +38,13 @@ names.
 
 
 ## Install
+Mac OS X users can install with Homebrew:
+
+	$ brew install https://raw.githubusercontent.com/teddywing/git-branch-list/master/Homebrew/git-branch-list.rb
+
+On other platforms, grab the code and put the `git-branch-list` script in your
+`PATH`. Bash completion can be added by sourcing the
+`git-branch-list.bash-completion` file in your Bash profile.
 
 
 ## License
