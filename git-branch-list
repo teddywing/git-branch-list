@@ -54,10 +54,16 @@ function save_branch () {
 
 function drop_branch () {
 	local branch=$(branch_or_current_branch "$1")
+	local input="$branch"
 
 	# Assume `$branch` is an ID if it's not a branch name
 	if ! is_a_branch "$branch"; then
 		branch=$(branch_by_id "$branch")
+	fi
+
+	if [ -z "$branch" ]; then
+		echo "branch-list: Unrecognised branch '$input'" 1>&2
+		exit 1
 	fi
 
 	sed -i '.bak' "/$branch/d" "$DATABASE"
