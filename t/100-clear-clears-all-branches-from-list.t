@@ -4,9 +4,7 @@ use strict;
 
 use Test::More;
 
-use File::Spec;
-
-my $BIN = File::Spec->rel2abs('git-branch-list');
+use Bin qw($BIN);
 
 chdir 't-git-repo' or die $!;
 
