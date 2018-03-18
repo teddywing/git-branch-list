@@ -64,6 +64,10 @@ function drop_branch () {
 	rm "${DATABASE}.bak"
 }
 
+function clear_branches () {
+	: > "$DATABASE"
+}
+
 function list_branches () {
 	nl "$DATABASE"
 }
@@ -128,6 +132,9 @@ case "$command" in
 		;;
 	drop)
 		drop_branch "$2"
+		;;
+	clear)
+		clear_branches
 		;;
 	"")
 		list_branches
