@@ -1,0 +1,15 @@
+CHANGELOG
+=========
+
+v0.1.0 (2018-03-21):
+	Additions:
+
+	* New `clear` subcommand drops all saved branches.
+	* The `drop` subcommand now accepts multiple arguments, enabling deletion of
+	  several saved branches at once.
+	* New TAP test suite with tests for the `drop` and `clear` subcommands.
+
+v0.0.1 (2018-02-21):
+	Initial release.
+
+ vim:tw=80:
