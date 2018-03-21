@@ -20,15 +20,23 @@ ok !$?;
 system("$BIN save second");
 ok !$?;
 
-system("$BIN clear");
+system('git branch third');
+ok !$?;
+
+system("$BIN save third");
+ok !$?;
+
+system("$BIN drop 1 3");
 ok !$?;
 
 my $branch_list = qx($BIN);
-is $branch_list, '';
+is $branch_list, '     1	second
+';
 
 
 # Teardown
-system('git branch -d first second');
+system('git branch -d first second third');
+system("$BIN clear");
 
 
 done_testing;

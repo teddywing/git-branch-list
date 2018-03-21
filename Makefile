@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	prove -v
+	prove -v -I./t

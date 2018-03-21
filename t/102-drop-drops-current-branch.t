@@ -8,19 +8,13 @@ use Bin qw($BIN);
 
 chdir 't-git-repo' or die $!;
 
-system('git branch first');
+system('git checkout -b first');
 ok !$?;
 
-system("$BIN save first");
+system("$BIN save");
 ok !$?;
 
-system('git branch second');
-ok !$?;
-
-system("$BIN save second");
-ok !$?;
-
-system("$BIN clear");
+system("$BIN drop");
 ok !$?;
 
 my $branch_list = qx($BIN);
@@ -28,7 +22,8 @@ is $branch_list, '';
 
 
 # Teardown
-system('git branch -d first second');
+system('git checkout master');
+system('git branch -d first');
 
 
 done_testing;
