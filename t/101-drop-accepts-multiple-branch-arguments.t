@@ -30,8 +30,7 @@ system("$BIN drop 1 3");
 ok !$?;
 
 my $branch_list = qx($BIN);
-is $branch_list, '
-     1	second
+is $branch_list, '     1	second
 ';
 
 
