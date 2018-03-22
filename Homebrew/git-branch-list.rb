@@ -1,8 +1,8 @@
 class GitBranchList < Formula
   desc "Maintains a list of Git branches that can be checked out quickly"
   homepage "https://github.com/teddywing/git-branch-list"
-  url "https://github.com/teddywing/git-branch-list/archive/v0.0.1.tar.gz"
-  sha256 "2bd298e432b09ac8048712c3d47a04a6853ae1eb2287f0f15011e46a3a965a57"
+  url "https://github.com/teddywing/git-branch-list/archive/v0.1.0.tar.gz"
+  sha256 "b2e695f950c089d065117ce71678ec1b558b432e3b46b153d6fc920168ea54ad"
 
   def install
     bin.install "git-branch-list"
