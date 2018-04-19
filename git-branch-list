@@ -78,10 +78,9 @@ function drop_branch () {
 	done
 
 	for branch in "${branch_names[@]}"; do
-		sed -i '.bak' "/^$branch$/d" "$DATABASE"
+		fgrep --line-regexp --invert-match "$branch" "$DATABASE" > "$DATABASE.bak"
+		mv "${DATABASE}.bak" "$DATABASE"
 	done
-
-	rm "${DATABASE}.bak"
 }
 
 function clear_branches () {
