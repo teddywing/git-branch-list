@@ -44,7 +44,7 @@ __EOF__
 function save_branch () {
 	local branch=$(branch_or_current_branch "$1")
 
-	if fgrep "$branch" "$DATABASE" > /dev/null; then
+	if fgrep --line-regexp "$branch" "$DATABASE" > /dev/null; then
 		return 1
 	fi
 
