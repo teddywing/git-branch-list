@@ -78,7 +78,7 @@ function drop_branch () {
 	done
 
 	for branch in "${branch_names[@]}"; do
-		sed -i '.bak' "/$branch/d" "$DATABASE"
+		sed -i '.bak' "/^$branch$/d" "$DATABASE"
 	done
 
 	rm "${DATABASE}.bak"
