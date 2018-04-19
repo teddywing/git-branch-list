@@ -1,6 +1,15 @@
 CHANGELOG
 =========
 
+v0.1.1 (2018-04-19):
+	Fixes:
+
+	* Prevent `drop` from removing all branches matching the same pattern.
+	* Match whole instead of partial branch names in `save` to prevent an error
+	  when trying to save different branches with similar names.
+	* Fix `drop` bug that prevented branches containing slashes ("/") from being
+	  dropped.
+
 v0.1.0 (2018-03-21):
 	Additions:
 
