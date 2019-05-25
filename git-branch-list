@@ -18,7 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-DATABASE=.git/info/git-branch-list
+GIT_ROOT=$(git rev-parse --show-toplevel)
+DATABASE="${GIT_ROOT}/.git/info/git-branch-list"
 VERSION=0.1.1
 
 function initialise_database () {
