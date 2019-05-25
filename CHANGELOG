@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+v0.1.2 (2019-05-25):
+	Fixes:
+
+	* Allow branch list to be used in subdirectories of a Git repo.
+	* Update help output to show the `clear` command and that `drop` can take
+	  multiple arguments.
+
 v0.1.1 (2018-04-19):
 	Fixes:
 
