@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+v0.1.3 (2019-12-09):
+	Fixes:
+
+	* Checkout no longer errors when there are ID + 10 saved branches.
+	* Drop no longer drops both ID and ID + 10 when there are ID + 10 saved
+	  branches.
+
 v0.1.2 (2019-05-25):
 	Fixes:
 
@@ -28,4 +35,4 @@ v0.1.0 (2018-03-21):
 v0.0.1 (2018-02-21):
 	Initial release.
 
- vim:tw=80:
+ vim:tw=80:comments+=fb\:*:

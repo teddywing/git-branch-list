@@ -20,7 +20,7 @@
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
 DATABASE="${GIT_ROOT}/.git/info/git-branch-list"
-VERSION=0.1.2
+VERSION=0.1.3
 
 function initialise_database () {
 	if [ -d .git ]; then
