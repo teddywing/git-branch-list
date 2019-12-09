@@ -40,7 +40,7 @@ names.
 ## Install
 Mac OS X users can install with Homebrew:
 
-	$ brew install https://raw.githubusercontent.com/teddywing/git-branch-list/master/Homebrew/git-branch-list.rb
+	$ brew install teddywing/formulae/git-branch-list
 
 On other platforms, grab the code and put the `git-branch-list` script in your
 `PATH`. Bash completion can be added by sourcing the
@@ -48,5 +48,5 @@ On other platforms, grab the code and put the `git-branch-list` script in your
 
 
 ## License
-Copyright © 2018 Teddy Wing. Licensed under the GNU GPLv3+ (see the included
-COPYING file).
+Copyright © 2018–2019 Teddy Wing. Licensed under the GNU GPLv3+ (see the
+included COPYING file).
