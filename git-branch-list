@@ -130,8 +130,8 @@ function branch_by_id () {
 	local id="$1"
 
 	local branch=$(list_branches |
-		tr -d ' ' |
-		fgrep "$id	" |
+		tr -s ' ' |
+		fgrep " $id	" |
 		cut -d '	' -f 2)
 
 	echo "$branch"
