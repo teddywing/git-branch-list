@@ -20,7 +20,7 @@ function _git_branch_list () {
 		tr -d ' ' |
 		cut -d '	' -f 1)
 
-	local subcommands="save drop $branch_ids"
+	local subcommands="save drop clear $branch_ids"
 	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 
 	if [ -z "$subcommand" ]; then
