@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+v0.1.4 (2020-03-13):
+	Fixes:
+
+	* The database file can now be correctly located when in a worktree.
+
 v0.1.3 (2019-12-09):
 	Fixes:
 
