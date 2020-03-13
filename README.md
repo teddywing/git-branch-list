@@ -48,5 +48,5 @@ On other platforms, grab the code and put the `git-branch-list` script in your
 
 
 ## License
-Copyright © 2018–2019 Teddy Wing. Licensed under the GNU GPLv3+ (see the
+Copyright © 2018–2020 Teddy Wing. Licensed under the GNU GPLv3+ (see the
 included COPYING file).

@@ -3,7 +3,7 @@
 # git-branch-list
 # Maintains a list of Git branches that can be checked out quickly.
 
-# Copyright (c) 2018–2019  Teddy Wing
+# Copyright (c) 2018–2020  Teddy Wing
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-GIT_ROOT=$(git rev-parse --show-toplevel)
-DATABASE="${GIT_ROOT}/.git/info/git-branch-list"
-VERSION=0.1.3
+GIT_ROOT="$(git rev-parse --git-common-dir)"
+DATABASE="${GIT_ROOT}/info/git-branch-list"
+VERSION=0.1.4
 
 function initialise_database () {
 	if [ -d .git ]; then
