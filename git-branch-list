@@ -3,7 +3,7 @@
 # git-branch-list
 # Maintains a list of Git branches that can be checked out quickly.
 
-# Copyright (c) 2018–2019  Teddy Wing
+# Copyright (c) 2018–2020  Teddy Wing
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
